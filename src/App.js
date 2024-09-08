@@ -1,25 +1,17 @@
-import logo from './logo.svg';
+import * as React from "react";
+import Navigation from "./Navigation";
+// 1. import `NextUIProvider` component
+import {NextUIProvider} from "@nextui-org/react";
 import './App.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-function App() {
+
+export default function App() {
+  // 2. Wrap NextUIProvider at the root of your app
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <NextUIProvider>
+      <Navigation/>
+    </NextUIProvider>
   );
 }
-
-export default App;
