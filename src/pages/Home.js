@@ -1,11 +1,15 @@
 import React from "react";
 import Header from '../components/Header';
+import Contato from '../components/contato'
 import curriculumImage from '../assets/images/curriculoImagem.avif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython } from '@fortawesome/free-brands-svg-icons';
 import Slider from "react-slick";
+import ListaCard from '../components/ListaCard';
+import { faDribbble } from '@fortawesome/free-brands-svg-icons';
+
 
 export default function Home() {
   const skills = [
@@ -63,6 +67,7 @@ export default function Home() {
             <FontAwesomeIcon icon={faEnvelope} size="2x" className="text-white" />
             <FontAwesomeIcon icon={faGithub} size="2x" className="text-white" />
             <FontAwesomeIcon icon={faLinkedin} size="2x" className="text-white" />
+            <FontAwesomeIcon icon={faDribbble} size='2x' className="text-white" />
           </div>
         </div>
         <div className="w-2/3 p-8">
@@ -74,22 +79,27 @@ export default function Home() {
 
       {/* Skills - Carrossel */}
       <div id="Skill" className="bg-gray-800 py-10">
-        <h1 className="text-center text-white text-3xl font-bold mb-6">Minhas Skills</h1>
+        <h1 className="text-center text-white text-3xl font-bold mb-6">Skills</h1>
         <Slider {...settings} className="w-full">
           {skills.concat(skills).map((skill, index) => (
-            <div key={index} className="flex flex-col items-center p-4">
-              <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
-              <h3 className="text-white text-lg mt-4">{skill.name}</h3>
+            <div key={index} className="flex flex-col items-center p-4 justify-center">
+              <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400 alig" />
+              <h3 className="text-white text-lg mt-4 ">{skill.name}</h3>
             </div>
           ))}
         </Slider>
       </div>
 
       {/* Projects */}
-      <div id="Projects" className="w-full bg-gray-900 p-8">
-        <h1 className="text-center text-white text-3xl font-bold mb-6">Projetos</h1>
-        <p className="text-white">Aqui você pode adicionar informações sobre seus projetos.</p>
+      <div className="flex justify-center">
+        <div id="Projects" className="w-full p-8 m-8">
+          <h1 className="text-center text-white text-3xl font-bold mb-6">Projetos</h1>
+          <div><ListaCard /></div>
+        </div> 
       </div>
+
+      {/* Contato */}
+      <Contato />
     </div>
   );
 }

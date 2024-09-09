@@ -1,0 +1,39 @@
+[
+    {
+      "id": 1,
+      "title": "Portfolio React",
+      "description": "Um portfólio pessoal criado com React, Next.js e Tailwind CSS.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+1"
+    },
+    {
+      "id": 2,
+      "title": "API de Gerenciamento",
+      "description": "API RESTful desenvolvida em Node.js para gerenciamento de tarefas.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+2"
+    },
+    {
+      "id": 3,
+      "title": "Sistema de Biblioteca",
+      "description": "Sistema de gerenciamento de biblioteca desenvolvido com Python e Flask.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+3"
+    },
+    {
+      "id": 4,
+      "title": "E-commerce Full Stack",
+      "description": "Plataforma de e-commerce criada com React no front-end e Node.js no back-end.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+4"
+    },
+    {
+      "id": 5,
+      "title": "Blog Pessoal",
+      "description": "Blog criado com HTML5, CSS3 e JavaScript.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+5"
+    },
+    {
+      "id": 6,
+      "title": "Dashboard de Análise",
+      "description": "Dashboard interativa para análise de dados usando React e Chart.js.",
+      "image": "https://via.placeholder.com/270x150.png?text=Projeto+6"
+    }
+  ]
+  
