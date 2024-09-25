@@ -8,16 +8,16 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('your_service_id', 'your_template_id', e.target, 'your_user_id')
+    emailjs.sendForm('service_dn3ylur', 'template_adx3pu5', e.target, 'VV6fWx3od9TlKEMCo')
       .then((result) => {
           console.log(result.text);
-          alert("Mensagem enviada com sucesso!");
+          alert("Mensagem enviada com sucesso!"); 
       }, (error) => {
           console.log(error.text);
           alert("Erro ao enviar mensagem. Tente novamente mais tarde.");
       });
   };
-
+  
   return (
     <div id="Contato" className="bg-gray-800 py-12 px-6">
       <div className="max-w-7xl mx-auto text-center">
