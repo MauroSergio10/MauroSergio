@@ -51,7 +51,7 @@ export default function Home() {
             <h1 className="text-cyan-400 font-semibold text-sm">Lorem Ipsum</h1>
             <h1 className="text-2xl font-semibold">Mauro Sergio</h1>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-4 pb-4">
             <p className="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
             <button className="border-2 border-cyan-400 rounded-md py-2 px-4 text-cyan-400 font-semibold">
               Baixar currículo
@@ -64,9 +64,9 @@ export default function Home() {
       </div>
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex flex-col md:flex-row bg-gray-900 p-8">
+      <div id="Sobre" className="w-full flex md:flex-row flex-col-reverse bg-gray-900 p-8">
         <div className="w-full md:w-1/3 flex flex-col items-center space-y-4">
-          <FontAwesomeIcon icon={faUser} size="6x" className="text-cyan-400" />
+          <FontAwesomeIcon icon={faUser} className="text-cyan-400 w-16 h-16 md:w-24 md:h-24" />
           <h2 className="text-white text-xl">Mauro Sérgio</h2>
           <div className="flex space-x-4 text-cyan-400">
             <FontAwesomeIcon icon={faEnvelope} size="2x" />
