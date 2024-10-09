@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from '../components/Header';
 import Contato from '../components/contato';
-import curriculumImage from '../assets/images/curriculoImagem.avif';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
@@ -9,8 +8,11 @@ import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs
 import Slider from "react-slick";
 import ListaCard from '../components/ListaCard';
 import { faDribbble } from '@fortawesome/free-brands-svg-icons';
+import MySVG from '../assets/svg/undraw_mobile_messages_re_yx8w.svg'
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   const skills = [
     { name: 'JavaScript', icon: faJsSquare },
     { name: 'React', icon: faReact },
@@ -40,6 +42,12 @@ export default function Home() {
     ],
   };
 
+  const projects = [
+    { title: "Projeto 1", image: "/path/to/image1.jpg" },
+    { title: "Projeto 2", image: "/path/to/image2.jpg" },
+    // Adicione mais projetos conforme necessário
+  ];
+
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Header />
@@ -59,13 +67,13 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <img src={curriculumImage} className="max-h-full w-full object-cover" alt="Currículo" />
+          <img src={MySVG} alt="Ilustração" className="w- h-auto" /> {/* Usando o SVG como imagem */}
         </div>
       </div>
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex md:flex-row flex-col-reverse bg-gray-900 p-8">
-        <div className="w-full md:w-1/3 flex flex-col items-center space-y-4">
+      <div id="Sobre" className="w-full flex md:flex-row flex-col bg-gray-900 p-8">
+        <div className="hidden md:flex w-full md:w-1/3 flex-col items-center space-y-4">
           <FontAwesomeIcon icon={faUser} className="text-cyan-400 w-16 h-16 md:w-24 md:h-24" />
           <h2 className="text-white text-xl">Mauro Sérgio</h2>
           <div className="flex space-x-4 text-cyan-400">

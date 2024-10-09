@@ -4,7 +4,7 @@ import { AcmeLogo } from "./AcmeLogo.jsx";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [activeItem, setActiveItem] = React.useState("Sobre");  // Estado para o item ativo
+  const [activeItem, setActiveItem] = React.useState("Sobre"); // Estado para o item ativo
 
   const menuItems = ["Sobre", "Skill", "Projects"];
 
@@ -42,17 +42,15 @@ export default function Header() {
       onMenuOpenChange={setIsMenuOpen}
       className="bg-gray-900"
     >
-      <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
-      </NavbarContent>
-
-      <NavbarContent className="sm:hidden pr-3" justify="center">
+      {/* Logo centralizada no mobile */}
+      <NavbarContent className="sm:hidden" justify="center">
         <NavbarBrand>
           <AcmeLogo className="text-white" /> {/* Logotipo Acme branco */}
           <p className="font-bold text-white">ACME</p> {/* Texto Acme branco */}
         </NavbarBrand>
       </NavbarContent>
 
+      {/* Menu de navegação e logo no desktop */}
       <NavbarContent className="hidden sm:flex gap-4 w-screen" justify="center">
         <NavbarBrand>
           <p className="font-bold text-white">ACME</p> {/* Texto Acme branco */}
@@ -70,7 +68,7 @@ export default function Header() {
                   e.preventDefault(); // Previne o comportamento padrão do link
                   handleClick(item);
                 }}
-              > 
+              >
                 {item}
               </Link>
             </NavbarItem>

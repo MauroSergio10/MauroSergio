@@ -21,8 +21,8 @@ export default function Contact() {
   return (
     <div id="Contato" className="bg-gray-800 py-12 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-3xl font-bold text-cyan-400 mb-4">Entre em Contato</h2>
-        <p className="text-white text-lg mb-8">
+        <h2 className="font-bold text-cyan-400 mb-4 text-sm md:text-base">Entre em Contato</h2>
+        <p className="text-white mb-8 text-sm md:text-base">
           Estou sempre aberto a novas oportunidades e colaborações. Se você quiser discutir um projeto, compartilhar ideias, fique à vontade para entrar em contato!
         </p>
 
@@ -31,7 +31,7 @@ export default function Contact() {
             <FontAwesomeIcon icon={faEnvelope} size="2x" className="text-cyan-400" />
             <a 
               href="mailto:maurosergiocantuaria@gmail.com?subject=Contato&body=Olá Mauro,"
-              className="text-cyan-400 hover:text-cyan-600 text-lg"
+              className="text-cyan-400 hover:text-cyan-600 text-sm md:text-base"
             >
               maurosergiocantuaria@gmail.com
             </a>
@@ -43,7 +43,7 @@ export default function Contact() {
               href="https://wa.me/5561999594718"
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-600 text-lg"
+              className="text-cyan-400 hover:text-cyan-600 text-sm md:text-base"
             >
               +55 61 99959-4718
             </a>
@@ -55,7 +55,7 @@ export default function Contact() {
               href="https://github.com/MauroSergio10?tab=repositories" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-600 text-lg"
+              className="text-cyan-400 hover:text-cyan-600 text-sm md:text-base"
             >
               github.com/MauroSergio10
             </a>
@@ -67,7 +67,7 @@ export default function Contact() {
               href="https://www.linkedin.com/in/mauro-sergio-15a60a19a/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-cyan-400 hover:text-cyan-600 text-lg"
+              className="text-cyan-400 hover:text-cyan-600 text-sm md:text-base"
             >
               linkedin.com/in/mauro-sergio-15a60a19a
             </a>
@@ -81,7 +81,7 @@ export default function Contact() {
               id="name"
               name="name" // Certifique-se de que o nome do campo corresponde ao esperado no template do EmailJS
               type="text"
-              className="p-2 rounded-md bg-gray-900 text-white border border-cyan-400 focus:ring-2 focus:ring-cyan-600"
+              className="p-2 rounded-md bg-gray-900 text-white border border-cyan-400 focus:ring-2 focus:ring-cyan-600 text-sm"
               placeholder="Seu nome"
             />
           </div>
@@ -91,7 +91,7 @@ export default function Contact() {
               id="email"
               name="email" // Certifique-se de que o nome do campo corresponde ao esperado no template do EmailJS
               type="email"
-              className="p-2 rounded-md bg-gray-900 text-white border border-cyan-400 focus:ring-2 focus:ring-cyan-600"
+              className="p-2 rounded-md bg-gray-900 text-white border border-cyan-400 focus:ring-2 focus:ring-cyan-600 text-sm"
               placeholder="Seu email"
             />
           </div>
