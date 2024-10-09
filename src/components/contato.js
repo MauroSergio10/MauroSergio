@@ -21,7 +21,7 @@ export default function Contact() {
   return (
     <div id="Contato" className="bg-gray-800 py-12 px-6">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="font-bold text-cyan-400 mb-4 text-sm md:text-base">Entre em Contato</h2>
+        <h2 className="font-bold text-cyan-400 mb-4 text-xl md:text-base">Entre em Contato</h2>
         <p className="text-white mb-8 text-sm md:text-base">
           Estou sempre aberto a novas oportunidades e colaborações. Se você quiser discutir um projeto, compartilhar ideias, fique à vontade para entrar em contato!
         </p>

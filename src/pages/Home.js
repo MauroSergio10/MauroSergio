@@ -92,12 +92,12 @@ export default function Home() {
 
       {/* Skills - Carrossel */}
       <div id="Skill" className="bg-gray-800 py-10">
-        <h1 className="text-center text-white text-3xl font-bold mb-6">Skills</h1>
+        <h1 className="text-center text-white text-xl md:text-3xl font-bold mb-6">Skills</h1>
         <Slider {...settings} className="w-full max-w-full overflow-hidden">
           {skills.concat(skills).map((skill, index) => (
             <div key={index} className="flex flex-col items-center p-4 justify-center">
               <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
-              <h3 className="text-white text-lg mt-4">{skill.name}</h3>
+              <h3 className="text-white text-base mt-4">{skill.name}</h3>
             </div>
           ))}
         </Slider>
@@ -106,7 +106,7 @@ export default function Home() {
       {/* Projects */}
       <div className="flex justify-center">
         <div id="Projects" className="w-full p-4 md:p-8">
-          <h1 className="text-center text-white text-3xl font-bold mb-6">Projetos</h1>
+          <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-6">Projetos</h1>
           <div><ListaCard /></div>
         </div>
       </div>
