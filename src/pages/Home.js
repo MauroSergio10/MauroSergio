@@ -11,7 +11,6 @@ import { faDribbble } from '@fortawesome/free-brands-svg-icons';
 import MySVG from '../assets/svg/undraw_mobile_messages_re_yx8w.svg'
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState(null);
 
   const skills = [
     { name: 'JavaScript', icon: faJsSquare },
@@ -72,8 +71,13 @@ export default function Home() {
       </div>
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex md:flex-row flex-col bg-gray-900 p-8">
-        <div className="hidden md:flex w-full md:w-1/3 flex-col items-center space-y-4">
+      <div id="Sobre" className="w-full flex md:flex-row-reverse flex-col justify-center align-middle bg-gray-900 p-8">
+        <div className="w-full md:w-2/3 p-4 md:p-8">
+          <h1 className="pb-4 text-xl font-semibold">SOBRE</h1>
+          <p>Conheça um pouco sobre mim</p>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+        </div>
+        <div className="flex w-full md:w-1/3 flex-col items-center space-y-4">
           <FontAwesomeIcon icon={faUser} className="text-cyan-400 w-16 h-16 md:w-24 md:h-24" />
           <h2 className="text-white text-xl">Mauro Sérgio</h2>
           <div className="flex space-x-4 text-cyan-400">
@@ -82,11 +86,6 @@ export default function Home() {
             <FontAwesomeIcon icon={faLinkedin} size="2x" />
             <FontAwesomeIcon icon={faDribbble} size="2x" />
           </div>
-        </div>
-        <div className="w-full md:w-2/3 p-4 md:p-8">
-          <h1 className="pb-4 text-2xl font-semibold">SOBRE</h1>
-          <p>Conheça um pouco sobre mim</p>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
         </div>
       </div>
 
