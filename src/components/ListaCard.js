@@ -6,7 +6,7 @@ export default function ListaCard() {
   return (
     <div className="container flex justify-center">
       {/* Ajusta o grid para ficar responsivo em diferentes tamanhos de tela */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-4 flex justify-center align -middle">
         {projetos.map((projeto) => (
           <div 
             key={projeto.id} 

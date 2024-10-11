@@ -105,8 +105,8 @@ export default function Home() {
       {/* Projects */}
       <div className="flex justify-center">
         <div id="Projects" className="w-full p-4 md:p-8">
-          <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-6">Projetos</h1>
-          <div><ListaCard /></div>
+          <h1 className="text-center text-white md:text-3xl text-xl font-bold">Projetos</h1>
+          <div className="flex justify-center"><ListaCard /></div>
         </div>
       </div>
 
