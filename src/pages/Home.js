@@ -65,7 +65,7 @@ export default function Home() {
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Header />
 
-      {/* Currículo */}
+      {/* Currículo 
       <div className="flex flex-col md:flex-row p-8 md:p-20 space-y-4 md:space-y-0 md:space-x-4">
         <div className="w-full md:w-1/2 flex flex-col justify-center space-y-4">
           <div>
@@ -80,27 +80,48 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center items-center">
-          <img src={MySVG} alt="Ilustração" className="w-[70%] h-auto" /> {/* Usando o SVG como imagem */}
+          <img src={MySVG} alt="Ilustração" className="w-[70%] h-auto" /> 
         </div>
-      </div>
+      </div> /*}
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex md:flex-row-reverse flex-col justify-center align-middle bg-gray-900 p-8">
-        <div className="w-full md:w-2/3 p-4 md:p-8">
-          <h1 className="pb-4 text-xl font-semibold">SOBRE</h1>
-          <p className="py-2">Conheça um pouco sobre mim.</p>
-          <p>Sou um desenvolvedor full stack com experiência em React, Typescript, Tailwind, PostgreeSQL e NextUI, especializado na criação de interfaces modernas e funcionais. Com formação em Engenharia de Software e prática em desenvolvimento de projetos pessoais e sistemas de gerenciamento, estou sempre aprendendo novas tecnologias para expandir minhas capacidades. Busco aplicar minhas habilidades para resolver problemas complexos e entregar soluções inovadoras.</p>
+      <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gray-900 p-12">
+        <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6">
+          <h1 className="pb-4 text-xl font-semibold">SOBRE MIM</h1>
+          <p className="py-4">Sou Mauro, um desenvolvedor full stack com experiência em bots, desenvolvimento web e especializado na criação de interfaces modernas e funcionais. </p>
+          <p>Com formação em Engenharia de Software e experiência no desenvolvimento de projetos pessoais e sistemas de gerenciamento, busco constantemente aprender novas tecnologias, ampliando minha versatilidade.</p>
         </div>
-        <div className="flex w-full md:w-1/3 flex-col items-center space-y-4">
-          <FontAwesomeIcon icon={faUser} className="text-cyan-400 w-16 h-16 md:w-24 md:h-24" />
-          <h2 className="text-white text-xl">Mauro Sérgio</h2>
-          <div className="flex space-x-4 text-cyan-400">
-            <FontAwesomeIcon icon={faEnvelope} size="2x" />
-            <FontAwesomeIcon icon={faGithub} size="2x" />
-            <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            <FontAwesomeIcon icon={faDribbble} size="2x" />
+
+        <div className="flex justify-center items-center min-h-screen ">
+          {/* Celular */}
+          <div className="relative w-48 h-96 bg-gray-800 rounded-3xl shadow-lg flex flex-col items-center justify-center">
+            {/* Tela */}
+            <div className="w-44 h-80 bg-gray-900 mt-4 rounded-xl">
+              <div className="w-full h-[100%] bg-gray-200  rounded-xl flex flex-col items-center justify-center space-y-4">
+                <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
+                <h2 className="text-white text-lg">Mauro Sérgio</h2>
+                <div className="flex space-x-4">
+                  <FontAwesomeIcon icon={faEnvelope} size="lg" color="#fff" />
+                  <FontAwesomeIcon icon={faGithub} size="lg" color="#fff" />
+                  <FontAwesomeIcon icon={faLinkedin} size="lg" color="#fff" />
+                  <FontAwesomeIcon icon={faDribbble} size="lg" color="#fff" />
+                </div>
+
+              </div>
+            </div>
+            {/* Câmera */}
+            <div className="absolute top-2 w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+            {/* Botão home */}
+            <div className="absolute bottom-4 w-12 h-2 bg-gray-500 rounded-full"></div>
+            {/* Botões de volume */}
+            <div className="absolute top-20 left-0 flex flex-col space-y-3">
+              <div className="w-1.5 h-10 bg-gray-500 rounded"></div>
+              <div className="w-1.5 h-10 bg-gray-500 rounded"></div>
+            </div>
           </div>
         </div>
+
+
       </div>
 
       {/* Skills - Carrossel */}
