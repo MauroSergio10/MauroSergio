@@ -85,19 +85,19 @@ export default function Home() {
       </div> /*}
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gray-900 p-12">
-        <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6">
+      <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gradient-to-r p-12">
+        <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6 md:max-w-4xl">
           <h1 className="pb-4 text-xl font-semibold">SOBRE MIM</h1>
           <p className="py-4">Sou Mauro, um desenvolvedor full stack com experiência em bots, desenvolvimento web e especializado na criação de interfaces modernas e funcionais. </p>
           <p>Com formação em Engenharia de Software e experiência no desenvolvimento de projetos pessoais e sistemas de gerenciamento, busco constantemente aprender novas tecnologias, ampliando minha versatilidade.</p>
         </div>
 
-        <div className="flex justify-center items-center min-h-screen ">
+        <div className="flex justify-center items-center">
           {/* Celular */}
           <div className="relative w-48 h-96 bg-gray-800 rounded-3xl shadow-lg flex flex-col items-center justify-center">
             {/* Tela */}
-            <div className="w-44 h-80 bg-gray-900 mt-4 rounded-xl">
-              <div className="w-full h-[100%] bg-gray-200  rounded-xl flex flex-col items-center justify-center space-y-4">
+            <div className="w-44 h-80 bg-gray-700 mt-4 rounded-xl">
+              <div className="w-full h-[100%] bg-gray-700  rounded-xl flex flex-col items-center justify-center space-y-4">
                 <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
                 <h2 className="text-white text-lg">Mauro Sérgio</h2>
                 <div className="flex space-x-4">
