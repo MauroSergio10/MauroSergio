@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from '../components/Header';
 import Slider from "react-slick";
-import ListaCard from '../components/ListaCard';
-import MySVG from '../assets/svg/undraw_mobile_messages_re_yx8w.svg'
+import { Image } from "@nextui-org/react";
 import emailjs from 'emailjs-com'; // Importando o SDK
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython} from '@fortawesome/free-brands-svg-icons';
 import { faDribbble } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import projetos from "../ListaCard.json"
+import { BeakerIcon } from '@heroicons/react/24/solid';
 
 export default function Home() {
 
@@ -20,6 +21,9 @@ export default function Home() {
     { name: 'Node.js', icon: faNodeJs },
     { name: 'Python', icon: faPython },
     { name: 'GitHub', icon: faGithub },
+    { name: 'Sass', icon: faCoffee }, 
+    { name: 'Tailwind CSS', icon: BeakerIcon }, // Ícone do Tailwind CSS
+    { name: 'Next UI', icon: faReact }, 
   ];
 
   const settings = {
@@ -41,11 +45,15 @@ export default function Home() {
     ],
   };
 
-  const projects = [
-    { title: "Projeto 1", image: "/path/to/image1.jpg" },
-    { title: "Projeto 2", image: "/path/to/image2.jpg" },
-    // Adicione mais projetos conforme necessário
-  ];
+  const stackColors = {
+    'React': 'bg-blue-400',
+    'JavaScript': 'bg-yellow-400',
+    'HTML5': 'bg-red-400',
+    'CSS3': 'bg-blue-500',
+    'Node.js': 'bg-green-400',
+    'Python': 'bg-blue-300',
+    'GitHub': 'bg-gray-500',
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -65,25 +73,6 @@ export default function Home() {
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
       <Header />
 
-      {/* Currículo 
-      <div className="flex flex-col md:flex-row p-8 md:p-20 space-y-4 md:space-y-0 md:space-x-4">
-        <div className="w-full md:w-1/2 flex flex-col justify-center space-y-4">
-          <div>
-            <h1 className="text-cyan-400 font-semibold text-sm">Lorem Ipsum</h1>
-            <h1 className="text-2xl font-semibold">Mauro Sergio</h1>
-          </div>
-          <div className="space-y-4 pb-4">
-            <p className="text-justify">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-            <button className="border-2 border-cyan-400 rounded-md py-2 px-4 text-cyan-400 font-semibold">
-              Baixar currículo
-            </button>
-          </div>
-        </div>
-        <div className="w-full md:w-1/2 flex justify-center items-center">
-          <img src={MySVG} alt="Ilustração" className="w-[70%] h-auto" /> 
-        </div>
-      </div> /*}
-
       {/* Sobre Mim */}
       <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gradient-to-r p-12">
         <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6 md:max-w-4xl">
@@ -101,10 +90,19 @@ export default function Home() {
                 <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
                 <h2 className="text-white text-lg">Mauro Sérgio</h2>
                 <div className="flex space-x-4">
-                  <FontAwesomeIcon icon={faEnvelope} size="lg" color="#fff" />
-                  <FontAwesomeIcon icon={faGithub} size="lg" color="#fff" />
-                  <FontAwesomeIcon icon={faLinkedin} size="lg" color="#fff" />
-                  <FontAwesomeIcon icon={faDribbble} size="lg" color="#fff" />
+                  <a href="mailto:maurosergiocantuaria@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faEnvelope} size="lg" color="#fff" />
+                  </a>
+                  <a href="https://github.com/MauroSergio10" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} size="lg" color="#fff" />
+                  </a>
+                  <a href="https://www.linkedin.com/in/mauro-sergio-15a60a19a/" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} size="lg" color="#fff" />
+                  </a>
+                  <a href="https://dribbble.com/MauroSergioC" target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faDribbble} size="lg" color="#fff" />
+                  </a>
+
                 </div>
 
               </div>
@@ -120,8 +118,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-
-
       </div>
 
       {/* Skills - Carrossel */}
@@ -140,17 +136,56 @@ export default function Home() {
       {/* Projects */}
       <div className="flex justify-center">
         <div id="Projects" className="w-full p-4 md:p-8">
-          <h1 className="text-center text-white md:text-3xl text-xl font-bold">Projetos</h1>
-          <div className="flex justify-center"><ListaCard /></div>
+          <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-6">Projetos</h1>
+          <div className="flex justify-center">
+            <div className="container flex justify-center">
+              {/* Ajusta o grid para ficar responsivo em diferentes tamanhos de tela */}
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-4 flex justify-center align-middle">
+                {projetos.map((projeto) => (
+                  <div
+                    key={projeto.id}
+                    className="bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-transform duration-300 w-[100%] md:w-[90%]"
+                  >
+                    <Image
+                      alt={projeto.title}
+                      className="object-cover md:w-360 md:h-100 w-100 w-200 transition-transform duration-300 transform hover:scale-125" // Aumente o scale para 125 ou 150
+                      src={projeto.image}
+                    />
+                    <div className="p-4">
+                      <h3 className="font-bold text-cyan-400 text-sm">{projeto.title}</h3>
+                      <p className="text-white text-xs md:text-base">{projeto.description}</p>
+                    </div>
+                    <div className="flex justify-between items-center mt-4">
+                      <a
+                        href={projeto.link}
+                        className="text-cyan-400 hover:text-cyan-600 font-bold text-sm"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Ver projetos
+                      </a>
+                      <div className="hidden md:flex"> {/* Alterado para esconder em telas menores */}
+                        {projeto.techStack.map((tech, i) => (
+                          <span key={i} className={`px-2 py-1 ${stackColors[tech] || 'bg-gray-500'} text-white rounded-md text-xs mr-1`}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Contato */}
       <div id="Contato" className="bg-gray-800 py-12 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="font-bold text-cyan-400 mb-4 text-xl md:text-3xl">Entre em Contato</h2>
+          <h2 className="font-bold text-cyan-400 mb-6 text-xl md:text-3xl">Entre em Contato</h2>
           <p className="text-white mb-8 text-sm md:text-base">
-            Estou sempre aberto a novas oportunidades e colaborações. Se você quiser discutir um projeto, compartilhar ideias, fique à vontade para entrar em contato!
+            Estou sempre aberto a novas oportunidades e colaborações. Se você quiser discutir um projetos, compartilhar ideias, fique à vontade para entrar em contato!
           </p>
 
           <div className="flex flex-col items-center space-y-4 mb-8">
@@ -241,6 +276,7 @@ export default function Home() {
           </form>
         </div>
       </div>
+      <FontAwesomeIcon icon="fa-brands fa-sass" />
     </div>
   );
 }
