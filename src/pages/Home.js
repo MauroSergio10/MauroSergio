@@ -1,15 +1,16 @@
 import React from "react";
-import Header from '../components/Header';
 import Slider from "react-slick";
 import { Image } from "@nextui-org/react";
 import emailjs from 'emailjs-com'; // Importando o SDK
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython} from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython, faSass } from '@fortawesome/free-brands-svg-icons';
 import { faDribbble } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faPhone, faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import projetos from "../ListaCard.json"
-import { BeakerIcon } from '@heroicons/react/24/solid';
+import TailwindIcon from "../assets/svg/tailwind-css.svg";
+
+
 
 export default function Home() {
 
@@ -21,15 +22,15 @@ export default function Home() {
     { name: 'Node.js', icon: faNodeJs },
     { name: 'Python', icon: faPython },
     { name: 'GitHub', icon: faGithub },
-    { name: 'Sass', icon: faCoffee }, 
-    { name: 'Tailwind CSS', icon: BeakerIcon }, // Ícone do Tailwind CSS
-    { name: 'Next UI', icon: faReact }, 
+    { name: 'Sass', icon: faSass },
+    { name: 'Tailwind CSS', icon: TailwindIcon }, // Ícone do Tailwind CSS
+    { name: 'Next UI', icon: faReact },
   ];
 
   const settings = {
     dots: false,
     infinite: true,
-    speed: 6000,
+    speed: 2000,
     slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
@@ -71,10 +72,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
-      <Header />
 
       {/* Sobre Mim */}
-      <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gradient-to-r p-12">
+      <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gradient-to-r p-12 pt-32 pb-32">
         <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6 md:max-w-4xl">
           <h1 className="pb-4 text-xl font-semibold">SOBRE MIM</h1>
           <p className="py-4">Sou Mauro, um desenvolvedor full stack com experiência em bots, desenvolvimento web e especializado na criação de interfaces modernas e funcionais. </p>
@@ -125,9 +125,15 @@ export default function Home() {
         <h1 className="text-center text-white text-xl md:text-3xl font-bold mb-6">Skills</h1>
         <Slider {...settings} className="w-full max-w-full overflow-hidden">
           {skills.concat(skills).map((skill, index) => (
-            <div key={index} className="flex flex-col items-center p-4 justify-center">
-              <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
-              <h3 className="text-white text-base mt-4">{skill.name}</h3>
+            <div key={index} className="flex flex-col items-center justify-center p-4">
+              <div className="flex flex-col items-center justify-center">
+                {typeof skill.icon === 'object' ? (
+                  <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
+                ) : (
+                  <img src={skill.icon} alt={skill.name} className="w-16 h-16" />
+                )}
+                <h3 className="text-white text-base mt-4 text-center">{skill.name}</h3>
+              </div>
             </div>
           ))}
         </Slider>
@@ -136,7 +142,7 @@ export default function Home() {
       {/* Projects */}
       <div className="flex justify-center">
         <div id="Projects" className="w-full p-4 md:p-8">
-          <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-6">Projetos</h1>
+          <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-12">Projetos</h1>
           <div className="flex justify-center">
             <div className="container flex justify-center">
               {/* Ajusta o grid para ficar responsivo em diferentes tamanhos de tela */}
@@ -276,7 +282,6 @@ export default function Home() {
           </form>
         </div>
       </div>
-      <FontAwesomeIcon icon="fa-brands fa-sass" />
     </div>
   );
 }
