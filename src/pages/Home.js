@@ -1,19 +1,18 @@
 import React from "react";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import { Autoplay } from "swiper/modules";
 import { Image } from "@nextui-org/react";
-import emailjs from 'emailjs-com'; // Importando o SDK
+import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython, faSass } from '@fortawesome/free-brands-svg-icons';
-import { faDribbble } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython, faSass, faDribbble } from '@fortawesome/free-brands-svg-icons'; // Corrigido aqui
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import projetos from "../ListaCard.json"
+import projetos from "../ListaCard.json";
 import TailwindIcon from "../assets/svg/tailwind-css.svg";
 
-
-
 export default function Home() {
-
   const skills = [
     { name: 'JavaScript', icon: faJsSquare },
     { name: 'React', icon: faReact },
@@ -23,28 +22,9 @@ export default function Home() {
     { name: 'Python', icon: faPython },
     { name: 'GitHub', icon: faGithub },
     { name: 'Sass', icon: faSass },
-    { name: 'Tailwind CSS', icon: TailwindIcon }, // Ícone do Tailwind CSS
+    { name: 'Tailwind CSS', icon: TailwindIcon },
     { name: 'Next UI', icon: faReact },
   ];
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 2000,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 0,
-    cssEase: 'linear',
-    draggable: false,
-    swipe: false,
-    touchMove: false,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
-      { breakpoint: 768, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 2 } },
-    ],
-  };
 
   const stackColors = {
     'React': 'bg-blue-400',
@@ -58,7 +38,6 @@ export default function Home() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
     emailjs.sendForm('service_dn3ylur', 'template_adx3pu5', e.target, 'VV6fWx3od9TlKEMCo')
       .then((result) => {
         console.log(result.text);
@@ -69,49 +48,37 @@ export default function Home() {
       });
   };
 
-
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
-
       {/* Sobre Mim */}
       <div id="Sobre" className="w-full flex md:flex-row flex-col justify-center align-middle bg-gradient-to-r p-12 pt-32 pb-32">
         <div className="w-full md:w-2/3 p-4 md:p-8 md:pl-px-6 md:max-w-4xl">
           <h1 className="pb-4 text-xl font-semibold">SOBRE MIM</h1>
-          <p className="py-4">Sou Mauro, um desenvolvedor full stack com experiência em bots, desenvolvimento web e especializado na criação de interfaces modernas e funcionais. </p>
+          <p className="py-4">Sou Mauro, um desenvolvedor full stack com experiência em bots, desenvolvimento web e especializado na criação de interfaces modernas e funcionais.</p>
           <p>Com formação em Engenharia de Software e experiência no desenvolvimento de projetos pessoais e sistemas de gerenciamento, busco constantemente aprender novas tecnologias, ampliando minha versatilidade.</p>
         </div>
-
         <div className="flex justify-center items-center">
-          {/* Celular */}
           <div className="relative w-48 h-96 bg-gray-800 rounded-3xl shadow-lg flex flex-col items-center justify-center">
-            {/* Tela */}
-            <div className="w-44 h-80 bg-gray-700 mt-4 rounded-xl">
-              <div className="w-full h-[100%] bg-gray-700  rounded-xl flex flex-col items-center justify-center space-y-4">
-                <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
-                <h2 className="text-white text-lg">Mauro Sérgio</h2>
-                <div className="flex space-x-4">
-                  <a href="mailto:maurosergiocantuaria@gmail.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faEnvelope} size="lg" color="#fff" />
-                  </a>
-                  <a href="https://github.com/MauroSergio10" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faGithub} size="lg" color="#fff" />
-                  </a>
-                  <a href="https://www.linkedin.com/in/mauro-sergio-15a60a19a/" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faLinkedin} size="lg" color="#fff" />
-                  </a>
-                  <a href="https://dribbble.com/MauroSergioC" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faDribbble} size="lg" color="#fff" />
-                  </a>
-
-                </div>
-
+            <div className="w-44 h-80 bg-gray-700 mt-4 rounded-xl flex flex-col items-center justify-center space-y-4">
+              <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
+              <h2 className="text-white text-lg">Mauro Sérgio</h2>
+              <div className="flex space-x-4">
+                <a href="mailto:maurosergiocantuaria@gmail.com" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faEnvelope} size="lg" color="#fff" />
+                </a>
+                <a href="https://github.com/MauroSergio10" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faGithub} size="lg" color="#fff" />
+                </a>
+                <a href="https://www.linkedin.com/in/mauro-sergio-15a60a19a/" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faLinkedin} size="lg" color="#fff" />
+                </a>
+                <a href="https://dribbble.com/MauroSergioC" target="_blank" rel="noopener noreferrer">
+                  <FontAwesomeIcon icon={faDribbble} size="lg" color="#fff" />
+                </a>
               </div>
             </div>
-            {/* Câmera */}
             <div className="absolute top-2 w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
-            {/* Botão home */}
             <div className="absolute bottom-4 w-12 h-2 bg-gray-500 rounded-full"></div>
-            {/* Botões de volume */}
             <div className="absolute top-20 left-0 flex flex-col space-y-3">
               <div className="w-1.5 h-10 bg-gray-500 rounded"></div>
               <div className="w-1.5 h-10 bg-gray-500 rounded"></div>
@@ -120,68 +87,62 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Skills - Carrossel */}
+      {/* Skills - Carrossel com Swiper */}
       <div id="Skill" className="bg-gray-800 py-10">
         <h1 className="text-center text-white text-xl md:text-3xl font-bold mb-6">Skills</h1>
-        <Slider {...settings} className="w-full max-w-full overflow-hidden">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={30} // Você pode ajustar esse valor conforme necessário
+          slidesPerView={5} // Defina o valor padrão para 5
+          autoplay={{ delay: 0, disableOnInteraction: false }}
+          speed={2000}
+          loop={true}
+          className="w-full max-w-full"
+          breakpoints={{
+            1024: { slidesPerView: 5 }, // Para desktops
+            768: { slidesPerView: 4 },  // Para tablets
+            640: { slidesPerView: 3 },  // Para celulares
+            480: { slidesPerView: 2 },   // Para telas muito pequenas
+          }}
+        >
+
           {skills.concat(skills).map((skill, index) => (
-            <div key={index} className="flex flex-col items-center justify-center p-4">
-              <div className="flex flex-col items-center justify-center">
-                {typeof skill.icon === 'object' ? (
-                  <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
-                ) : (
-                  <img src={skill.icon} alt={skill.name} className="w-16 h-16" />
-                )}
-                <h3 className="text-white text-base mt-4 text-center">{skill.name}</h3>
-              </div>
-            </div>
+            <SwiperSlide key={index} className="flex flex-col items-center justify-center p-4">
+              {typeof skill.icon === 'object' ? (
+                <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
+              ) : (
+                <img src={skill.icon} alt={skill.name} className="w-16 h-16" />
+              )}
+              <h3 className="text-white text-base mt-4 text-center">{skill.name}</h3>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
 
       {/* Projects */}
       <div className="flex justify-center">
         <div id="Projects" className="w-full p-4 md:p-8">
           <h1 className="text-center text-white md:text-3xl text-xl font-bold mb-12">Projetos</h1>
-          <div className="flex justify-center">
-            <div className="container flex justify-center">
-              {/* Ajusta o grid para ficar responsivo em diferentes tamanhos de tela */}
-              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-4 flex justify-center align-middle">
-                {projetos.map((projeto) => (
-                  <div
-                    key={projeto.id}
-                    className="bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-transform duration-300 w-[100%] md:w-[90%]"
-                  >
-                    <Image
-                      alt={projeto.title}
-                      className="object-cover md:w-360 md:h-100 w-100 w-200 transition-transform duration-300 transform hover:scale-125" // Aumente o scale para 125 ou 150
-                      src={projeto.image}
-                    />
-                    <div className="p-4">
-                      <h3 className="font-bold text-cyan-400 text-sm">{projeto.title}</h3>
-                      <p className="text-white text-xs md:text-base">{projeto.description}</p>
-                    </div>
-                    <div className="flex justify-between items-center mt-4">
-                      <a
-                        href={projeto.link}
-                        className="text-cyan-400 hover:text-cyan-600 font-bold text-sm"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Ver projetos
-                      </a>
-                      <div className="hidden md:flex"> {/* Alterado para esconder em telas menores */}
-                        {projeto.techStack.map((tech, i) => (
-                          <span key={i} className={`px-2 py-1 ${stackColors[tech] || 'bg-gray-500'} text-white rounded-md text-xs mr-1`}>
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 py-4">
+            {projetos.map((projeto) => (
+              <div key={projeto.id} className="bg-gray-900 p-4 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-transform duration-300 w-[100%] md:w-[90%]">
+                <Image alt={projeto.title} className="object-cover md:w-360 md:h-100 w-100 w-200 transition-transform duration-300 transform hover:scale-125" src={projeto.image} />
+                <div className="p-4">
+                  <h3 className="font-bold text-cyan-400 text-sm">{projeto.title}</h3>
+                  <p className="text-white text-xs md:text-base">{projeto.description}</p>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <a href={projeto.link} className="text-cyan-400 hover:text-cyan-600 font-bold text-sm" target="_blank" rel="noopener noreferrer">Ver projetos</a>
+                  <div className="hidden md:flex">
+                    {projeto.techStack.map((tech, i) => (
+                      <span key={i} className={`px-2 py-1 ${stackColors[tech] || 'bg-gray-500'} text-white rounded-md text-xs mr-1`}>
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
