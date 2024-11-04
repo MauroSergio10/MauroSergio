@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import { Image } from "@nextui-org/react";
 import emailjs from 'emailjs-com';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import eu from "../assets/svg/image/eu.webp"
 import { faGithub, faLinkedin, faReact, faJsSquare, faHtml5, faCss3Alt, faNodeJs, faPython, faSass, faDribbble } from '@fortawesome/free-brands-svg-icons'; // Corrigido aqui
 import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import projetos from "../ListaCard.json";
@@ -58,9 +58,18 @@ export default function Home() {
           <p>Com formação em Engenharia de Software e experiência no desenvolvimento de projetos pessoais e sistemas de gerenciamento, busco constantemente aprender novas tecnologias, ampliando minha versatilidade.</p>
         </div>
         <div className="flex justify-center items-center">
-          <div className="relative w-48 h-96 bg-gray-800 rounded-3xl shadow-lg flex flex-col items-center justify-center">
-            <div className="w-44 h-80 bg-gray-700 mt-4 rounded-xl flex flex-col items-center justify-center space-y-4">
-              <FontAwesomeIcon icon={faUser} className="text-cyan-500 w-16 h-16 md:w-24 md:h-24" />
+          <div className="relative w-48 h-96 bg-black rounded-3xl shadow-lg flex flex-col items-center justify-center">
+            <div className="w-44 h-80 bg-yellow-900 mt-4 rounded-xl flex flex-col items-center justify-center space-y-4">
+              <img
+                src={eu}
+                alt="Descrição da imagem"
+                style={{
+                  width: '150px',
+                  height: '150px',
+                  borderRadius: '50%',
+                  objectFit: 'cover'
+                }}
+              />
               <h2 className="text-white text-lg">Mauro Sérgio</h2>
               <div className="flex space-x-4">
                 <a href="mailto:maurosergiocantuaria@gmail.com" target="_blank" rel="noopener noreferrer">
