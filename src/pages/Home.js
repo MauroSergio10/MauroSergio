@@ -101,21 +101,23 @@ export default function Home() {
         <h1 className="text-center text-white text-xl md:text-3xl font-bold mb-6">Skills</h1>
         <Swiper
           modules={[Autoplay]}
-          spaceBetween={30} // Você pode ajustar esse valor conforme necessário
-          slidesPerView={5} // Defina o valor padrão para 5
+          spaceBetween={30} // Espaçamento padrão entre slides
+          slidesPerView={5} // Número padrão de slides
           autoplay={{ delay: 0, disableOnInteraction: false }}
           speed={2000}
           loop={true}
           className="w-full max-w-full"
           breakpoints={{
-            1024: { slidesPerView: 5 }, // Para desktops
-            768: { slidesPerView: 4 },  // Para tablets
-            640: { slidesPerView: 3 },  // Para celulares
-            480: { slidesPerView: 2 },   // Para telas muito pequenas
+            1600: { slidesPerView: 5, spaceBetween: 30 }, // Monitores grandes
+            1280: { slidesPerView: 4, spaceBetween: 25 }, // Desktops
+            1024: { slidesPerView: 3, spaceBetween: 20 }, // Desktops menores ou laptops
+            768: { slidesPerView: 2, spaceBetween: 15 },  // Tablets em modo retrato
+            640: { slidesPerView: 2, spaceBetween: 10 }, // Smartphones maiores
+            480: { slidesPerView: 2, spaceBetween: 8 },  // Smartphones médios
+            360: { slidesPerView: 2, spaceBetween: 5 },    // Smartphones pequenos
           }}
         >
-
-          {skills.concat(skills).map((skill, index) => (
+          {skills.map((skill, index) => (
             <SwiperSlide key={index} className="flex flex-col items-center justify-center p-4">
               {typeof skill.icon === 'object' ? (
                 <FontAwesomeIcon icon={skill.icon} size="4x" className="text-cyan-400" />
@@ -126,6 +128,7 @@ export default function Home() {
             </SwiperSlide>
           ))}
         </Swiper>
+
       </div>
 
       {/* Projects */}
